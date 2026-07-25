@@ -1,0 +1,43 @@
+generated: '2026-07-25'
+method: searched
+source: https://www.finaeo.com/ (footer, via Internet Archive) + live DNS probes
+note: |
+  Finaeo publishes no API versioning policy, no deprecation policy, no Sunset /
+  Deprecation header contract (RFC 8594), no SLA and no working status page —
+  consistent with having no public API. The one lifecycle signal the site does
+  carry is a broken one: the footer still links a status page on the finaeo.ca
+  domain, and neither finaeo.ca nor status.finaeo.ca resolves (no A record, no NS
+  record). No StatusPage or Deprecation pointer is emitted, because neither
+  surface exists.
+versioning:
+  scheme: none-published
+  current: null
+  docs: null
+  evidence: no public API, no versioned paths, no version header documented
+deprecation:
+  policy_url: null
+  sunset_header: false
+  evidence: no deprecation or sunset policy published
+sla:
+  url: null
+  uptime_target: null
+  evidence: no SLA published on the public site; commercial terms sit behind
+    contract/book-a-demo
+status_page:
+  url: null
+  advertised_url: http://status.finaeo.ca/
+  resolves: false
+  status: 0
+  evidence: site footer links status.finaeo.ca; DNS returns NXDOMAIN for both
+    status.finaeo.ca and finaeo.ca (no A, no NS)
+changelog:
+  url: null
+  evidence: no product or API changelog published; the /blog/ and /who-we-are/newsroom/
+    surfaces are marketing, and the page sitemap's most recent lastmod is 2023-01-09
+deprecated_operations: []
+site_freshness:
+  security_statement_last_updated: '2021-07-26'
+  page_sitemap_lastmod: '2023-01-09'
+  post_sitemap_lastmod: '2022-08-08'
+  note: every published sitemap section was last modified in 2022–2023; the public
+    surface has not moved in roughly three years

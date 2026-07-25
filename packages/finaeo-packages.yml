@@ -1,0 +1,48 @@
+generated: '2026-07-25'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=finaeo
+note: |
+  Finaeo publishes no API client SDK in any language. A registry sweep (npm,
+  PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io) turns
+  up exactly one first-party package — a front-end CSS/HTML pattern library for
+  the (now non-resolving) portal.finaeo.com — and it is not a client library for
+  any API. Because no official client library exists, this artifact carries a
+  Packages pointer only; no SDKs pointer is emitted.
+packages:
+- language: css
+  registry: npm
+  name: finaeo-pattern-library
+  url: https://www.npmjs.com/package/finaeo-pattern-library
+  install: npm install finaeo-pattern-library
+  version: 1.2.0
+  license: ISC
+  repository: https://github.com/FinaeoInc/finaeo-pattern-library-v2
+  publisher: rnicholls-finaeo
+  first_published: '2019-02-17'
+  last_published: '2022-05-02'
+  official: true
+  sdk: false
+  kind: ui-pattern-library
+  description: All the styles and HTML structure for portal.finaeo.com. A design
+    system / pattern library, not an API client.
+registries_checked:
+- {registry: npm, query: finaeo, results: 1, official_sdks: 0}
+- {registry: pypi, results: 0, official_sdks: 0}
+- {registry: maven-central, results: 0, official_sdks: 0}
+- {registry: nuget, results: 0, official_sdks: 0}
+- {registry: pkg.go.dev, results: 0, official_sdks: 0}
+- {registry: rubygems, results: 0, official_sdks: 0}
+- {registry: packagist, results: 0, official_sdks: 0}
+- {registry: crates.io, results: 0, official_sdks: 0}
+github_org:
+  url: https://github.com/FinaeoInc
+  public_repos: 3
+  api_artifacts: 0
+  repos:
+  - {name: gulp-cloudfront, fork: true, language: JavaScript, pushed: '2016-08-16'}
+  - {name: angular-bootstrap-calendar, fork: true, language: JavaScript, pushed: '2016-11-09'}
+  - {name: finaeo-codetest, fork: false, language: TypeScript, pushed: '2020-07-22',
+     description: Engineering code test}
+  note: No SDK, no client library, no OpenAPI/Swagger/AsyncAPI/proto artifact in
+    the organization. The finaeo-pattern-library-v2 repo referenced by the npm
+    package is not public.

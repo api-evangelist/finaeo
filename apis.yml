@@ -39,11 +39,13 @@ modified: '2026-07-25'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/finaeo-domain-security.yml
 - type: Website
   url: https://www.finaeo.com/
 - type: Login
   url: https://www.finaeo.com/login/
-- type: Signup
+- type: SignUp
   url: https://www.finaeo.com/signup/
 - type: Pricing
   url: https://www.finaeo.com/pricing/
@@ -57,10 +59,32 @@ common:
   url: https://www.finaeo.com/privacy-policy/
 - type: Marketplace
   url: https://www.finaeo.com/marketplace/
-- type: Portal
+- type: ClientPortal
   url: https://www.finaeo.com/client-portal/
 - type: Support
   url: https://www.finaeo.com/contactus/
+- type: Demo
+  url: https://www.finaeo.com/book-a-demo/
+- type: ContactSales
+  url: https://www.finaeo.com/contact-sales/
+- type: Tutorials
+  url: https://www.finaeo.com/tutorials/
+- type: About
+  url: https://www.finaeo.com/who-we-are/
+- type: Newsroom
+  url: https://www.finaeo.com/who-we-are/newsroom/
+- type: WhitePapers
+  url: https://www.finaeo.com/white-papers/
+- type: Videos
+  url: https://www.finaeo.com/videos/
+- type: LLMsTxt
+  url: llms/finaeo-llms.txt
+- type: Packages
+  url: packages/finaeo-packages.yml
+- type: Conformance
+  url: conformance/finaeo-conformance.yml
+- type: Lifecycle
+  url: lifecycle/finaeo-lifecycle.yml
 - type: GitHubOrganization
   url: https://github.com/FinaeoInc
 - type: LinkedIn

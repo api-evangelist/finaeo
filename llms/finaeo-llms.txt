@@ -1,0 +1,60 @@
+# Finaeo
+
+> Finaeo Inc. is a Toronto-based Canadian insurtech operating a digital marketplace that connects life insurance carriers, independent brokers and their clients. It offers a multi-carrier product marketplace, side-by-side product comparison and quoting, a place-a-policy checkout flow with selected carriers, a white-labeled client portal with digital onboarding and custom Financial Needs Assessments, contact and document management, broker landing pages, and team/distributor white-label offerings. Home market Canada, expanding into the United States via IMO and broker-agency partnerships. Finaeo is a distribution and agency technology vendor, not a risk carrier.
+
+## API posture
+
+> Finaeo publishes NO public API. There is no developer portal, no API reference, no OpenAPI/Swagger document, no AsyncAPI, no GraphQL endpoint, no gRPC/proto, no webhook or event catalog, no SDK, no CLI, no Postman collection and no MCP server. No developer, developers, docs, api, app, portal or sandbox subdomain resolves in DNS. Finaeo's own carrier-facing marketing positions the product against APIs: "Leverage a complete no-code toolkit to digitize products, configure applications, and launch custom workflows directly into Finaeo's marketplace. This dramatically speeds up the launch process without the need for bulky APIs." The only documented carrier integration is bilateral and partner-negotiated — a 2021 data handoff into Empire Life's Fast & Full Life Application platform. Everything operational sits behind a broker login or a book-a-demo form. Integration is a partner-gated, sales-led motion, not a self-serve developer one.
+
+## APIs
+
+- No public APIs. Contact Finaeo sales to discuss a bilateral carrier or distributor integration: https://www.finaeo.com/contact-sales/
+
+## Product
+
+- [Marketplace](https://www.finaeo.com/marketplace/): Multi-carrier life product marketplace, search, quoting and side-by-side comparison for independent brokers.
+- [Client Portal](https://www.finaeo.com/client-portal/): White-labeled portal for end clients — digital onboarding, document sharing, My Wallet.
+- [Broker Landing Page](https://www.finaeo.com/broker-landing-page/): Branded advisor landing pages.
+- [Teams](https://www.finaeo.com/teams/): Team management for agencies.
+- [Distributors](https://www.finaeo.com/distributors/): White-label offering for MGAs, BGAs, IMOs and distributors.
+- [Pricing](https://www.finaeo.com/pricing/)
+
+## Docs
+
+- [Advisor tutorials](https://www.finaeo.com/tutorials/): End-user product tutorials — registering, search and quote, e-applications, product comparison reports, FNA, contacts, documents, client portal, custom landing pages, quoting widget.
+- [Broker tutorials](https://www.finaeo.com/broker-tutorials/): Brokerage-side equivalents, including bulk contact upload and client-portal access.
+- [Security Statement](https://www.finaeo.com/security/): Security posture, last updated 2021-07-26 — AWS hosting, encryption, access control, monthly vulnerability testing, annual independent penetration testing against OWASP Top 10.
+- [Terms of Use](https://www.finaeo.com/terms-of-use/)
+- [Privacy Policy](https://www.finaeo.com/privacy-policy/)
+
+## Access
+
+- [Log in](https://www.finaeo.com/login/)
+- [Sign up](https://www.finaeo.com/signup/)
+- [Book a demo](https://www.finaeo.com/book-a-demo/)
+- [Contact sales](https://www.finaeo.com/contact-sales/)
+- [Support / contact](https://www.finaeo.com/contactus/)
+
+## Company
+
+- [Who we are](https://www.finaeo.com/who-we-are/)
+- [Newsroom](https://www.finaeo.com/who-we-are/newsroom/)
+- [Blog](https://www.finaeo.com/blog/)
+- [White papers](https://www.finaeo.com/white-papers/)
+- [Videos](https://www.finaeo.com/videos/)
+- [GitHub](https://github.com/FinaeoInc): Three public repos, two of them unrelated 2016 forks plus an engineering code test. No SDK, no API definition.
+- [LinkedIn](https://www.linkedin.com/company/finaeo)
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/apis.yml): APIs.json index for Finaeo.
+- [review.yml](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/review.yml): Full API-surface review, including every probe and its HTTP status.
+- [conformance](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/conformance/finaeo-conformance.yml): Standards and compliance posture — note that the certifications on Finaeo's security page belong to AWS, not to Finaeo.
+- [well-known](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/well-known/finaeo-well-known.yml): /.well-known/ probe results (all absent; live host is Cloudflare-challenged).
+- [packages](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/packages/finaeo-packages.yml): Registry sweep — one first-party npm CSS pattern library, zero SDKs.
+- [lifecycle](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/lifecycle/finaeo-lifecycle.yml): Versioning, deprecation, SLA and status-page posture.
+- [domain security](https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/security/finaeo-domain-security.yml): TLS, HSTS, DNSSEC, CAA, SPF and DMARC probe results.
+
+## Optional
+
+- Finaeo does not operate an MCP server, publish agent skills, or expose an agent-accessible surface of any kind. An agent cannot transact with Finaeo programmatically; the integration path is a sales conversation.

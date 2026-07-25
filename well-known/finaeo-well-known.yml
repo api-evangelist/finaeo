@@ -1,0 +1,82 @@
+generated: '2026-07-25'
+method: probed
+source: live HTTP probes of www.finaeo.com + Internet Archive CDX/replay
+host: https://www.finaeo.com
+note: |
+  Finaeo publishes no /.well-known/ discovery surface. Every live probe of the
+  marketing host returns HTTP 403 from a Cloudflare bot-management interstitial
+  ("Just a moment...", cf-mitigated=challenge) rather than an origin response, so
+  the live status codes below are the edge's, not the origin's. To distinguish
+  "blocked" from "absent", each path was cross-checked against the Internet
+  Archive: /.well-known/openid-configuration was crawled twice in 2023 and both
+  captures are HTTP 404 from the origin, confirming genuine absence rather than
+  bot mitigation. No API host exists to probe — api.finaeo.com, developer.,
+  developers., docs., app., portal. and sandbox.finaeo.com are all NXDOMAIN, and
+  the finaeo.ca domain (still linked from the site footer as status.finaeo.ca)
+  no longer resolves at all.
+documents: []
+probes:
+- path: /.well-known/security.txt
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+- path: /.well-known/openid-configuration
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+  archive_status: 404
+  archive_captures:
+  - '20231011184442'
+  - '20231213223136'
+  archive_note: origin returned 404 in both archived captures — document genuinely absent
+- path: /.well-known/oauth-authorization-server
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+- path: /.well-known/api-catalog
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+- path: /.well-known/ai-plugin.json
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+- path: /llms.txt
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+  archive_status: 404
+- path: /openapi.json
+  status: 403
+  result: blocked-by-cloudflare
+  found: false
+- path: /robots.txt
+  status: 403
+  result: blocked-by-cloudflare
+  found: true
+  archive_status: 200
+  archive_note: |
+    WordPress default only — "User-agent: * / Disallow: /wp-admin/ /
+    Allow: /wp-admin/admin-ajax.php". No sitemap directive, no AI/agent
+    directives, no developer paths.
+- path: /sitemap_index.xml
+  status: 403
+  result: blocked-by-cloudflare
+  found: true
+  archive_status: 200
+  archive_note: |
+    Yoast SEO sitemap index (post/page/category/post_tag/author). The page
+    sitemap enumerates 96 marketing, tutorial and landing pages — zero
+    developer, docs, API, reference or sandbox paths.
+hosts_checked:
+- {host: www.finaeo.com, resolves: true, note: Cloudflare-fronted WordPress marketing site}
+- {host: finaeo.com, resolves: true, note: same Cloudflare challenge}
+- {host: api.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: developer.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: developers.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: docs.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: app.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: portal.finaeo.com, resolves: false, note: NXDOMAIN — the host the public npm finaeo-pattern-library was written to style}
+- {host: sandbox.finaeo.com, resolves: false, note: NXDOMAIN}
+- {host: finaeo.ca, resolves: false, note: NXDOMAIN — no A and no NS records}
+- {host: status.finaeo.ca, resolves: false, note: NXDOMAIN — still linked from the site footer as the status page}
