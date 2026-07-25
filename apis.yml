@@ -1,0 +1,74 @@
+aid: finaeo
+url: https://raw.githubusercontent.com/api-evangelist/finaeo/refs/heads/main/apis.yml
+name: Finaeo
+kind: company
+description: Finaeo Inc. is a Toronto-based Canadian insurtech operating a digital
+  marketplace that connects life insurance carriers, independent brokers and their
+  clients. Its platform gives independent life brokers a product marketplace across
+  carriers and hundreds of products, side-by-side product comparison and quoting, a
+  place-a-policy checkout flow with selected carriers, a white-labeled client portal
+  with digital onboarding and custom Financial Needs Assessments, contact and document
+  management, broker landing pages, and team and distributor white-label offerings.
+  Its home market is Canada, with expansion into the United States through IMO and
+  broker-agency partnerships. Line of business is life insurance distribution — Finaeo
+  is a distribution and agency technology vendor, not a risk carrier. Its API posture
+  is honestly one of absence — Finaeo publishes no public developer portal, no API
+  reference, no downloadable OpenAPI or Swagger, and no SDK. No developer, docs or
+  api subdomain resolves in DNS, and a sweep of 2,840 archived first-party URLs turns
+  up no developer surface at all. Finaeo's own carrier marketing explicitly positions
+  its integration story against APIs, describing a "no-code toolkit to digitize
+  products, configure applications, and launch custom workflows" that works "without
+  the need for bulky APIs." The only documented carrier integration is a bilateral,
+  partner-negotiated data handoff (Empire Life Fast & Full Life Application, 2021).
+  Everything else sits behind a broker login or a book-a-demo form, making Finaeo a
+  partner-gated, no-public-API provider.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- Canada
+- Life Insurance
+- Insurtech
+- Broker
+- Agency Management
+- Marketplace
+- Distribution
+- Quoting
+- Policy Administration
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.finaeo.com/
+- type: Login
+  url: https://www.finaeo.com/login/
+- type: Signup
+  url: https://www.finaeo.com/signup/
+- type: Pricing
+  url: https://www.finaeo.com/pricing/
+- type: Blog
+  url: https://www.finaeo.com/blog/
+- type: Security
+  url: https://www.finaeo.com/security/
+- type: TermsOfService
+  url: https://www.finaeo.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.finaeo.com/privacy-policy/
+- type: Marketplace
+  url: https://www.finaeo.com/marketplace/
+- type: Portal
+  url: https://www.finaeo.com/client-portal/
+- type: Support
+  url: https://www.finaeo.com/contactus/
+- type: GitHubOrganization
+  url: https://github.com/FinaeoInc
+- type: LinkedIn
+  url: https://www.linkedin.com/company/finaeo
+- type: X (Twitter)
+  url: https://twitter.com/finaeohq
+- type: YouTube
+  url: https://www.youtube.com/channel/UCe3BqBc3dM93Nr7irYMkFEw
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

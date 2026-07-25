@@ -1,0 +1,286 @@
+aid: finaeo
+name: Finaeo
+review:
+  question: Does Finaeo expose a real, self-serve public developer portal or downloadable
+    API specifications for its life insurance distribution platform?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: Canada
+  tier: agency-brokerage-tech
+findings:
+  summary: |
+    Finaeo Inc. is a Toronto-based Canadian insurtech running a digital marketplace
+    that connects life insurance carriers, independent brokers and end clients. It
+    publishes NO public developer portal, NO API reference, NO downloadable OpenAPI
+    or Swagger document, NO SDK, NO Postman collection, NO GraphQL surface and NO
+    webhook or event catalog. This is not a case of docs being hard to find: no
+    developer, developers, docs, api, app, portal or sandbox subdomain resolves in
+    DNS at all, and a sweep of 2,840 unique archived first-party URLs surfaces no
+    developer path of any kind.
+
+    The strongest signal is Finaeo's own carrier-facing marketing copy, which
+    positions the product explicitly AGAINST APIs. Verbatim from the homepage
+    carrier section: "Leverage a complete no-code toolkit to digitize products,
+    configure applications, and launch custom workflows directly into Finaeo's
+    marketplace. This dramatically speeds up the launch process without the need
+    for bulky APIs." Finaeo sells the absence of an integration API as a feature to
+    the carriers it onboards.
+
+    The only documented carrier integration is bilateral and partner-negotiated: a
+    May 2021 launch with Empire Life that pushes client data collected in Finaeo
+    into Empire Life's "Fast & Full Life Application" platform so brokers do not
+    re-key it. Finaeo described it as "the first of its kind on the Finaeo
+    platform," and stated that "for non-integrated carriers, Finaeo also offers a
+    'no-code' option to integrate applications directly into their system." At that
+    time the marketplace carried 15 carriers and 300+ products; later marketing
+    cites 1,000+ carrier products.
+
+    Everything operational sits behind a broker login (/login/, /signup/) or a
+    book-a-demo / contact-sales form. Carrier and distributor onboarding is a
+    "Book a call" motion. Finaeo is therefore a partner-gated provider with zero
+    public self-serve API surface.
+  posture: partner-gated; no public self-serve API
+  gated: true
+  developerPortal:
+    exists: false
+    url: ''
+    classification: none — no developer portal, login wall or innovation page found
+      on any first-party host
+    note: The public site is a WordPress marketing site with a broker login. The
+      product itself is a gated SaaS application.
+  probes:
+    - url: https://finaeo.com/
+      status: 403
+      note: Live, but fronted by a Cloudflare bot challenge (cf-mitigated=challenge,
+        "Just a moment..." interstitial). Every path on the host returns 403 to
+        non-browser clients. Content confirmed via Internet Archive.
+    - url: https://www.finaeo.com/
+      status: 403
+      note: Same Cloudflare challenge. Archived capture 2025-11-07 read successfully.
+    - url: https://developer.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://developers.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://docs.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://api.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://app.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://portal.finaeo.com
+      status: 0
+      note: NXDOMAIN. Notable because the public npm package "finaeo-pattern-library"
+        describes itself as containing "all the styles, and HTML structure for
+        portal.finaeo.com" — the host it styled no longer resolves.
+    - url: https://sandbox.finaeo.com
+      status: 0
+      note: NXDOMAIN — does not resolve
+    - url: https://finaeo.com/developers
+      status: 403
+      note: Cloudflare challenge; no such page exists in the archived URL set either
+    - url: https://finaeo.com/developer
+      status: 403
+      note: Cloudflare challenge; no such page in archive
+    - url: https://finaeo.com/api
+      status: 403
+      note: Cloudflare challenge; no such page in archive
+    - url: https://finaeo.com/partners
+      status: 403
+      note: Cloudflare challenge. A marketing page does exist at /partnership/ — it
+        is a broker-recruitment sign-up form with two named BD contacts, not a
+        technical partner/integration surface.
+    - url: https://finaeo.com/integrations
+      status: 403
+      note: Cloudflare challenge; no such page in archive
+    - url: https://finaeo.com/openapi.json
+      status: 403
+      note: Cloudflare challenge; not present in archived URL set
+    - url: https://finaeo.com/swagger.json
+      status: 403
+      note: Cloudflare challenge; not present in archived URL set
+    - url: https://finaeo.com/api-docs
+      status: 403
+      note: Cloudflare challenge; not present in archived URL set
+    - url: https://finaeo.com/graphql
+      status: 403
+      note: Cloudflare challenge; no GraphQL surface documented anywhere
+    - url: https://finaeo.com/.well-known/openid-configuration
+      status: 403
+      note: Cloudflare challenge; no OIDC discovery document published
+    - url: https://www.finaeo.com/wp-json/
+      status: 403
+      note: WordPress core REST API root, referenced from the marketing site's own
+        <head>. This is incidental CMS plumbing for a WordPress marketing site, not
+        a Finaeo product API, and is NOT counted as an API in apis.yml.
+    - url: http://status.finaeo.ca/
+      status: 0
+      note: NXDOMAIN. The site footer still links to this status page on the .ca
+        domain; neither finaeo.ca nor status.finaeo.ca resolves.
+  acord:
+    posture: no ACORD reference found
+    evidence: |
+      Zero matches for ACORD, AL3, ACORD XML, NGDS, IVANS, agency download,
+      Applied Epic, Vertafore or AMS360 across 2,840 unique archived first-party
+      URLs and across the homepage, carrier, broker, distributor, partnership,
+      security and Empire Life integration pages that were read in full. Finaeo
+      is a life-side distribution platform, and the North American life channel
+      sits outside the P&C ACORD/AL3/IVANS agency-download rails, so the absence
+      is consistent with the segment — but it is an absence, and it is recorded
+      as one. Data exchange with carriers is bilateral and proprietary.
+  insuranceVerbs:
+    quote:
+      exposed: true
+      surface: in-product only
+      audience: agent-facing
+      note: Quoting and multi-carrier product comparison are core marketplace
+        features, available to logged-in brokers in the Finaeo UI. No API.
+    bind:
+      exposed: partial
+      surface: in-product only
+      audience: agent-facing
+      note: '"Placing a Policy — start the checkout process on our platform," with
+        the caveat printed on Finaeo''s own homepage: "* available with a limited
+        selection of carriers." No API.'
+    issue:
+      exposed: false
+      surface: none
+      audience: n/a
+      note: Issuance happens at the carrier. The Empire Life integration hands off
+        into the carrier's own Fast & Full Life Application platform.
+    fnol:
+      exposed: false
+      surface: none
+      audience: n/a
+      note: Finaeo is a distribution/agency platform; no claims or FNOL capability
+        is offered or documented.
+  authModel:
+    scheme: username/password web login to a gated SaaS application
+    apiAuth: none published — no API keys, no OAuth2 client-credentials, no OAuth2
+      authorization-code, no mTLS, and no partner API auth documentation of any kind
+    discoveryDocuments: none — /.well-known/openid-configuration and
+      /.well-known/oauth-authorization-server are not served
+  webhooks:
+    exists: false
+    note: No webhook documentation, no event catalog, no AsyncAPI. Absence recorded
+      as a finding, not inferred.
+  postman:
+    exists: false
+    note: No public Postman collection or workspace found.
+  graphql:
+    exists: false
+    note: No GraphQL endpoint documented or discoverable.
+  grpc:
+    exists: false
+    note: No published .proto files.
+  sdks:
+    exists: false
+    note: |
+      GitHub organization github.com/FinaeoInc exists (created 2016-05-19) with 3
+      public repositories: gulp-cloudfront and angular-bootstrap-calendar (both
+      forks of unrelated JS tooling, last touched 2016) and finaeo-codetest (an
+      engineering hiring code test, last touched 2020-07-22). No SDK, no client
+      library, no API definition. One npm package exists — finaeo-pattern-library —
+      a CSS/HTML pattern library for the (now non-resolving) portal.finaeo.com.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API is documented. The platform is certainly REST-backed
+        internally, but nothing is published, versioned or referenced.
+    - protocol: GraphQL
+      documented: false
+    - protocol: gRPC
+      documented: false
+    - protocol: WebSocket
+      documented: false
+    - protocol: ACORD AL3 / ACORD XML
+      documented: false
+      note: No ACORD transport of any kind referenced.
+    - protocol: Bilateral carrier integration
+      documented: partially
+      note: Empire Life "Fast & Full Life Application" data handoff, announced
+        2021-05-18. Described in a press release; no technical specification,
+        endpoint or schema published.
+  companyProfile:
+    legalName: Finaeo Inc.
+    headquarters: Toronto, Ontario, Canada
+    homeMarket: Canada
+    secondaryMarket: United States (via IMO / broker-agency partnerships)
+    segment: life insurance distribution — digital marketplace, broker CRM,
+      white-label client portal
+    isCarrier: false
+    founders: Aly Dhalla (CEO / Co-Founder)
+    funding: CAD $5.35M round led by Luge Capital (2019); an earlier CAD $2.25M
+      round
+    boardNote: Alister Campbell joined the Finaeo board of directors
+    namedPartners:
+      - Empire Life (carrier integration, 2021)
+      - Brokers International (US IMO partnership)
+      - APOLLO Insurance (partnership)
+      - Willful (advisor partnership program)
+    infrastructure: AWS (VPC, ECS on EC2, ELB, encrypted RDS in private subnets),
+      per the published Security Statement last updated 2021-07-26
+  marketContext: |
+    Canada has the most fragmented insurance supervision of the four markets in
+    this study: OSFI supervises federally-regulated insurers prudentially while the
+    provinces regulate market conduct (FSRA in Ontario, AMF in Quebec). There is no
+    open-insurance mandate, and Consumer-Driven Banking — Canada's open-banking
+    framework — excludes insurance entirely. With no forcing function, a
+    distribution-layer vendor like Finaeo has no regulatory reason to publish an
+    API, and it does not. Its stated strategy is the opposite: sell carriers a
+    no-code onboarding path so they never have to build one either.
+sources:
+  - url: https://www.finaeo.com/
+    note: Homepage. Live host returns HTTP 403 Cloudflare bot challenge; content
+      read from Internet Archive capture 20251107021439. Source of the verbatim
+      "without the need for bulky APIs" carrier copy, the full navigation and
+      footer, and the product feature set.
+    fetched: '2026-07-25'
+    status: 403
+  - url: https://www.finaeo.com/security/
+    note: Finaeo Security Statement, last updated 2021-07-26. AWS hosting, access
+      control, encryption. Read via Internet Archive.
+    fetched: '2026-07-25'
+    status: 403
+  - url: https://www.finaeo.com/distributors/
+    note: Distributor white-label positioning. Read via Internet Archive capture
+      20250622.
+    fetched: '2026-07-25'
+    status: 403
+  - url: https://www.finaeo.com/partnership/
+    note: Broker recruitment page — a sign-up form, not a technical partner
+      program. Read via Internet Archive capture 20230529143237.
+    fetched: '2026-07-25'
+    status: 403
+  - url: https://www.finaeo.com/finaeo-empire-life-integration-makes-fast-full-applications-even-faster/
+    note: 2021-05-18 press release announcing the Empire Life integration; the only
+      documented carrier integration. Read via Internet Archive capture
+      20210519140839.
+    fetched: '2026-07-25'
+    status: 403
+  - url: https://web.archive.org/cdx/search/cdx?url=finaeo.com*
+    note: Internet Archive CDX index. 2,840 unique first-party URLs enumerated and
+      swept for developer/API/ACORD paths. Zero developer-portal paths, zero ACORD
+      references.
+    fetched: '2026-07-25'
+    status: 200
+  - url: https://api.github.com/orgs/FinaeoInc
+    note: Finaeo's GitHub organization — 3 public repos, none API-related, no SDK.
+    fetched: '2026-07-25'
+    status: 200
+  - url: https://registry.npmjs.org/-/v1/search?text=finaeo
+    note: Single package finaeo-pattern-library (UI styles for portal.finaeo.com).
+      Not an SDK.
+    fetched: '2026-07-25'
+    status: 200
+openapi:
+  harvested: false
+  count: 0
+  note: No OpenAPI, Swagger, AsyncAPI, GraphQL SDL or .proto artifact exists to
+    harvest. The openapi/ directory is intentionally absent from this repo.
