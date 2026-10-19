@@ -28,3 +28,34 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: finaeo-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/finaeo-pattern-library
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: finaeo-pattern-library
+      version: 1.2.0
+      released: '2022-05-02'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/finaeo-pattern-library
+      repo_leg: github-org:finaeoinc
+      publisher_leg: email:finaeo.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
